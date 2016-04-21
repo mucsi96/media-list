@@ -2,8 +2,9 @@
   "name": "ustream-media-list-app",
   "version": "1.0.0",
   "description": "Media list application",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
+    "start": "open src/index.html",
     "test": "npm run test:code-style && npm run test:unit",
     "test:code-style": "standard",
     "test:unit": "mocha $(find . -name \"src/*.spec.js\" )",
@@ -17,9 +18,6 @@
     "pre-commit": "^1.1.2",
     "sinon": "^1.17.3",
     "standard": "^6.0.8"
-  },
-  "dependencies": {
-    "zepto": "^1.0.1"
   },
   "pre-commit": [
     "test"
