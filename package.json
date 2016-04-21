@@ -1,0 +1,27 @@
+{
+  "name": "ustream-media-list-app",
+  "version": "1.0.0",
+  "description": "Media list application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:code-style && npm run test:unit",
+    "test:code-style": "standard",
+    "test:unit": "mocha $(find . -name \"src/*.spec.js\" )",
+    "test:watch": "npm run test -- -w"
+  },
+  "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "pre-commit": "^1.1.2",
+    "sinon": "^1.17.3",
+    "standard": "^6.0.8"
+  },
+  "dependencies": {
+    "zepto": "^1.0.1"
+  },
+  "pre-commit": [
+    "test"
+  ]
+}
