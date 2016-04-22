@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="node_modules/sinon/pkg/sinon.js"></script>
+  <script src="node_modules/chai/chai.js"></script>
+  <script src="node_modules/sinon-chai/lib/sinon-chai.js"></script>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+  <script>
+    chai.should()
+    mocha.setup('bdd')
+  </script>
+  <script src="src/script/core/event.js"></script>
+  <script src="src/script/media-list/media-list-model.js"></script>
+  <script src="src/script/media-list/media-list-view.js"></script>
+  <script src="src/script/core/event.spec.js"></script>
+  <script src="src/script/media-list/media-list-model.spec.js"></script>
+  <script src="src/script/media-list/media-list-view.spec.js"></script>
+  <script>
+    mocha.run()
+  </script>
+</body>
+</html>

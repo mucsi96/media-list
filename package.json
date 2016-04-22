@@ -5,10 +5,8 @@
   "main": "src/index.html",
   "scripts": {
     "start": "open src/index.html",
-    "test": "npm run test:code-style && npm run test:unit",
-    "test:code-style": "standard",
-    "test:unit": "mocha $(find . -name \"src/*.spec.js\" )",
-    "test:watch": "npm run test -- -w"
+    "test": "open spec-runner.html",
+    "code-style": "standard"
   },
   "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
   "license": "MIT",
@@ -17,9 +15,10 @@
     "mocha": "^2.4.5",
     "pre-commit": "^1.1.2",
     "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
     "standard": "^6.0.8"
   },
   "pre-commit": [
-    "test"
+    "code-style"
   ]
 }
