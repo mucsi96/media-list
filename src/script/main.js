@@ -1,18 +1,22 @@
-(function (window, $, App) {
+(function (context) {
   'use strict'
 
   var mediaListController
 
-  window.updateMediaList = function (data) {
+  context.updateMediaList = function (data) {
     mediaListController.updateItems(data)
   }
 
   $(function(){
-    var mediaListModel = new App.MediaListModel()
-    var mediaListView = new App.MediaListView(mediaListModel, {
+    var MediaListModel = $.require('MediaListModel')
+    var MediaListView = $.require('MediaListView')
+    var MediaListController = $.require('MediaListController')
+
+    var mediaListModel = new MediaListModel()
+    var mediaListView = new MediaListView(mediaListModel, {
       list: $('#media-list')
-    }, render)
-    mediaListController = new App.MediaListController(mediaListModel, mediaListView)
+    })
+    mediaListController = new MediaListController(mediaListModel, mediaListView)
 
     $.ajax({
       url: 'http://146.185.158.18/fake_api.php',
@@ -24,4 +28,4 @@
     })
   })
 
-})(window, $, App);
+})(window);
