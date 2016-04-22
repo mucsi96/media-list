@@ -1,0 +1,40 @@
+body {
+  background: #f5f7f9;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+#media-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media-list-item {
+  width: 25%;
+  overflow: hidden;
+}
+
+.media-list-item .thumbnail {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  background-color: #d0d0d0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.media-list-item h3 {
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 4px;
+  font-weight: 600;
+  color: #2c3c4c;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  word-break: normal;
+  text-overflow: ellipsis;
+}

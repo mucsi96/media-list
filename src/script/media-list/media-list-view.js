@@ -1,21 +1,26 @@
-(function ($, App) {
+$.define('MediaListView', function (module) {
   'use strict'
 
-  App = App || {}
-  App.MediaListView = function (model, elements) {
+  var View = $.require('View')
+
+  function MediaListView (model, elements, render) {
     this._model = model
     this._elements = elements
-    model.listChanged.subscribe(this._render.bind(this))
+    this._render = render
+    model.listChanged.subscribe(this._renderList.bind(this))
   }
 
-  App.MediaListView.prototype._render = function () {
+  MediaListView.prototype = new View()
+
+  MediaListView.prototype._renderList = function () {
     var self = this;
     var items = this._model.getItems()
     this._elements.list.empty()
     items.forEach(function (item) {
-      var node = $('<li>').text(item.title)
-      self._elements.list.append(node)
+      self.render('media-list-item', self._elements.list, item)
     })
   }
 
-})($, App);
+  module.exports = MediaListView
+
+})

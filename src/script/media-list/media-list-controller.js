@@ -1,14 +1,14 @@
-(function (App) {
+$.define('MediaListController', function (module) {
   'use strict'
 
-  App = App || {}
-  App.MediaListController = function (model, view) {
+  function MediaListController(model, view) {
     this._model = model
     this._view = view
   }
 
-  App.MediaListController.prototype.updateItems = function (items) {
+  MediaListController.prototype.updateItems = function (items) {
     this._model.updateItems(items)
   }
 
-})(App);
+  module.exports = MediaListController
+})

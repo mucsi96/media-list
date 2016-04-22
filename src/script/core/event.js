@@ -1,16 +1,19 @@
-'use strict'
+$.define('Event', function (module) {
+  'use strict'
 
-var App = App || {}
-App.Event = function () {
-  this._listeners = [];
-}
+  function Event () {
+    this._listeners = [];
+  }
 
-App.Event.prototype.subscribe = function(listener) {
-  this._listeners.push(listener);
-}
+  Event.prototype.subscribe = function(listener) {
+    this._listeners.push(listener);
+  }
 
-App.Event.prototype.publish = function() {
-  this._listeners.forEach(function(listener) {
-    listener()
-  })
-}
+  Event.prototype.publish = function() {
+    this._listeners.forEach(function(listener) {
+      listener()
+    })
+  }
+
+  module.exports = Event
+})

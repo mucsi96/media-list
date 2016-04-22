@@ -1,19 +1,20 @@
-(function (App) {
+$.define('MediaListModel', function (module) {
   'use strict'
 
-  App = App || {}
-  App.MediaListModel = function () {
-    this.listChanged = new App.Event()
+  var Event = $.require('Event')
+
+  function MediaListModel () {
+    this.listChanged = new Event()
   }
 
-  App.MediaListModel.prototype.updateItems = function (items) {
+  MediaListModel.prototype.updateItems = function (items) {
     this._items = [].concat(items)
     this.listChanged.publish()
   }
 
-  App.MediaListModel.prototype.getItems = function () {
+  MediaListModel.prototype.getItems = function () {
     return [].concat(this._items)
   }
 
-
-})(App);
+  module.exports = MediaListModel
+})

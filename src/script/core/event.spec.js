@@ -1,8 +1,10 @@
-/* global App, describe, it, chai, sinon */
+/* global describe, it, chai, sinon */
 
 describe('Event', function () {
-  it('should allow to subscribe on event', function() {
-    var event = new App.Event()
+  var Event = $.require('Event')
+
+  it('should allow to subscribe on events', function() {
+    var event = new Event()
     var callback = sinon.spy()
 
     event.subscribe(callback)

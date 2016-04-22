@@ -1,16 +1,20 @@
-/* global App, describe, it, chai, sinon */
+/* global describe, it, chai, sinon */
 
 describe('MediaListController', function () {
-  describe('updateItems', function() {
-    it('should update model items', function() {
-      var listNode = $('<ul>')
-      var model = new App.MediaListModel()
-      var view = new App.MediaListView(model, {
+  var MediaListModel = $.require('MediaListModel')
+  var MediaListView = $.require('MediaListView')
+  var MediaListController = $.require('MediaListController')
+
+  it('should be capable to update model items', function() {
+      var listNode = $('<div>')
+      var items = [{ id: 1, title: 'alpha' }, { id: 2, title: 'bravo' }]
+      var model = new MediaListModel()
+      var view = new MediaListView(model, {
         list: listNode
       })
-      var controller = new App.MediaListController(model, view)
-      controller.updateItems([{ id: 1, title: 'alpha' }, { id: 2, title: 'bravo' }]);
-      listNode.html().should.equal('<li>alpha</li><li>bravo</li>')
+      var controller = new MediaListController(model, view)
+      sinon.stub(view, 'render')
+      controller.updateItems(items);
+      view.render.should.have.been.called
     });
-  });
 })

@@ -1,7 +1,7 @@
 (function (window, $, App) {
   'use strict'
 
-  var mediaListController;
+  var mediaListController
 
   window.updateMediaList = function (data) {
     mediaListController.updateItems(data)
@@ -11,7 +11,7 @@
     var mediaListModel = new App.MediaListModel()
     var mediaListView = new App.MediaListView(mediaListModel, {
       list: $('#media-list')
-    })
+    }, render)
     mediaListController = new App.MediaListController(mediaListModel, mediaListView)
 
     $.ajax({
