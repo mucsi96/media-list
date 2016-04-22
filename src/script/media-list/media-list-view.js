@@ -12,7 +12,7 @@
     var items = this._model.getItems()
     this._elements.list.empty()
     items.forEach(function (item) {
-      var node = $('<li>' + item.title + '</li>')
+      var node = $('<li>').text(item.title)
       self._elements.list.append(node)
     })
   }
