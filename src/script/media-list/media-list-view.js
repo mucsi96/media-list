@@ -5,9 +5,10 @@
   App.MediaListView = function (model, elements) {
     this._model = model
     this._elements = elements
+    model.listChanged.subscribe(this._render.bind(this))
   }
 
-  App.MediaListView.prototype.render = function () {
+  App.MediaListView.prototype._render = function () {
     var self = this;
     var items = this._model.getItems()
     this._elements.list.empty()

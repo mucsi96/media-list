@@ -1,20 +1,18 @@
 (function (window, $, App) {
   'use strict'
 
-  var mediaListModel
-  var mediaListView
+  var mediaListController;
 
   window.updateMediaList = function (data) {
-    mediaListModel.updateItems(data)
-    mediaListView.render()
+    mediaListController.updateItems(data)
   }
 
-
   $(function(){
-    mediaListModel = new App.MediaListModel()
-    mediaListView = new App.MediaListView(mediaListModel, {
+    var mediaListModel = new App.MediaListModel()
+    var mediaListView = new App.MediaListView(mediaListModel, {
       list: $('#media-list')
     })
+    mediaListController = new App.MediaListController(mediaListModel, mediaListView)
 
     $.ajax({
       url: 'http://146.185.158.18/fake_api.php',
