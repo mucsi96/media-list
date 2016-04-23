@@ -9,19 +9,133 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
+  color: #2c3c4c;
 }
 
 header {
   background: #fff;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
-  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 4.9rem;
 }
 
 header h1 {
-  margin: 0 4%;
+  margin: 0;
+  margin-left: 4%;
   color: #38f;
   text-transform: uppercase;
   letter-spacing: -.3rem;
+}
+
+@media (max-width: 900px) {
+  header h1 {
+    margin-left: 3%;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    margin-left: 2%;
+  }
+}
+
+#media-criteria {
+  margin: 0;
+  margin-right: 4%;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+@media (max-width: 900px) {
+  #media-criteria {
+    margin-right: 3%;
+  }
+}
+
+@media (max-width: 600px) {
+  #media-criteria {
+    margin-right: 2%;
+  }
+}
+
+#media-criteria li + li {
+  margin-left: 20px;
+}
+
+#media-criteria li .caption {
+  transition: color .3s;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+#media-criteria li .caption:after {
+  margin-left: 10px;
+  margin-right: 10px;
+  content: "\2039";
+  display: inline-block;
+  transform: rotate(-90deg);
+  font-size: 1.2rem;
+  position: relative;
+  top: .15rem;
+  transition: color .3s;
+  color: #b9c6d0;
+}
+
+#media-criteria li .caption:hover:after {
+  color: #38f;
+}
+
+#media-criteria li .caption:hover {
+  color: #38f;
+}
+
+.contains-popover {
+  position: relative;
+  cursor: pointer;
+}
+
+.contains-popover:hover .popover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popover {
+  cursor: default;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s;
+  z-index: 1;
+  position: absolute;
+  top: 65px;
+  right: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.12);
+  padding: 20px;
+}
+
+.popover:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  border: 6px solid transparent;
+  border-bottom-color: #b7b7b7;
+  top: -12px;
+  right: 24px;
+}
+
+.popover:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  border: 5px solid transparent;
+  border-bottom-color: #fff;
+  top: -10px;
+  right: 25px;
 }
 
 #media-list {
@@ -73,7 +187,6 @@ header h1 {
   line-height: 1.2rem;
   padding-bottom: .2rem;
   font-weight: 600;
-  color: #2c3c4c;
   margin: 0;
   height: 2.4rem;
   overflow: hidden;

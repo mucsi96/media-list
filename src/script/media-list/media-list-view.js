@@ -3,10 +3,9 @@ $.define('MediaListView', function (module) {
 
   var View = $.require('View')
 
-  function MediaListView (model, elements, render) {
+  function MediaListView (model, elements) {
     this._model = model
     this._elements = elements
-    this._render = render
     model.listChanged.subscribe(this._renderList.bind(this))
   }
 

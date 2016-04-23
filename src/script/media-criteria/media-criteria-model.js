@@ -2,15 +2,12 @@ $.define('MediaCriteriaModel', function (module) {
   var Event = $.require('Event')
 
   function MediaCriteriaModel () {
-    this._filter = {}
-    this._sorting = { id: 'ASC' }
-    this.filterChanged = new Event()
-    this.sortingChanged = new Event()
+    this.criteriaChanged = new Event()
   }
 
   MediaCriteriaModel.prototype.setFilter = function (filter) {
     this._filter = filter
-    this.filterChanged.publish()
+    this.criteriaChanged.publish()
   }
 
   MediaCriteriaModel.prototype.getFilter = function () {
@@ -19,7 +16,7 @@ $.define('MediaCriteriaModel', function (module) {
 
   MediaCriteriaModel.prototype.setSorting = function (sorting) {
     this._sorting = sorting
-    this.sortingChanged.publish()
+    this.criteriaChanged.publish()
   }
 
   MediaCriteriaModel.prototype.getSorting = function () {
