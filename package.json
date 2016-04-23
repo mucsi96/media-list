@@ -20,5 +20,8 @@
   },
   "pre-commit": [
     "code-style"
-  ]
+  ],
+  "standard": {
+    "globals": [ "$" ]
+  }
 }

@@ -13,7 +13,7 @@ $.define('MediaListView', function (module) {
   MediaListView.prototype = new View()
 
   MediaListView.prototype._renderList = function () {
-    var self = this;
+    var self = this
     var items = this._model.getItems()
     this._elements.list.empty()
     items.forEach(function (item) {
@@ -22,5 +22,4 @@ $.define('MediaListView', function (module) {
   }
 
   module.exports = MediaListView
-
 })

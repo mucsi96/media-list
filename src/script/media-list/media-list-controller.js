@@ -1,7 +1,7 @@
 $.define('MediaListController', function (module) {
   'use strict'
 
-  function MediaListController(model, view) {
+  function MediaListController (model, view) {
     this._model = model
     this._view = view
   }

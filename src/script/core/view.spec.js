@@ -1,4 +1,4 @@
-/* global describe, it, chai, sinon */
+/* global describe, it */
 
 describe('View', function () {
   var View = $.require('View')
@@ -10,5 +10,5 @@ describe('View', function () {
     view.render('test', testElement, { name: 'alpha', email: 'alpha@email.com' })
     var html = testElement.html().replace(/\s/g, '')
     html.should.equal('<h1>alpha</h1><h2>alpha@email.com</h2>')
-  });
-});
+  })
+})

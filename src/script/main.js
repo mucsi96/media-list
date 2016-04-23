@@ -7,7 +7,7 @@
     mediaListController.updateItems(data)
   }
 
-  $(function(){
+  $(function () {
     var MediaListModel = $.require('MediaListModel')
     var MediaListView = $.require('MediaListView')
     var MediaListController = $.require('MediaListController')
@@ -22,10 +22,9 @@
       url: 'http://146.185.158.18/fake_api.php',
       dataType: 'jsonp',
       jsonpCallback: 'updateMediaList',
-      error: function() {
+      error: function () {
         console.error('Cannot connect to server')
       }
     })
   })
-
-})(window);
+})(window)
