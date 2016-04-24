@@ -6,10 +6,20 @@ $.define('MediaCriteriaModel', function (module) {
     { name: 'Offline channel only', data: { type: 'channel', isLive: false } },
     { name: 'Video only', data: { type: 'recorded' } }
   ]
+  var orders = [
+    { name: 'Id', key: 'id' },
+    { name: 'Title', key: 'title' },
+    { name: 'Description', key: 'description' },
+    { name: 'Viewers', key: 'viewers' }
+  ]
 
   function MediaCriteriaModel () {
     this.filterChanged = new Event()
-    this.sortingChanged = new Event()
+    this.orderChanged = new Event()
+  }
+
+  MediaCriteriaModel.prototype.getFilters = function () {
+    return filters
   }
 
   MediaCriteriaModel.prototype.setFilter = function (filter) {
@@ -21,17 +31,17 @@ $.define('MediaCriteriaModel', function (module) {
     return this._filter
   }
 
-  MediaCriteriaModel.prototype.getFilters = function () {
-    return filters
+  MediaCriteriaModel.prototype.getOrders = function () {
+    return orders
   }
 
-  MediaCriteriaModel.prototype.setSorting = function (sorting) {
-    this._sorting = sorting
-    this.sortingChanged.publish()
+  MediaCriteriaModel.prototype.setOrder = function (order) {
+    this._order = order
+    this.orderChanged.publish()
   }
 
-  MediaCriteriaModel.prototype.getSorting = function () {
-    return this._sorting
+  MediaCriteriaModel.prototype.getOrder = function () {
+    return this._order
   }
 
   module.exports = MediaCriteriaModel

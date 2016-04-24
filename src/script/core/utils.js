@@ -5,7 +5,12 @@ $.define('utils', function (module) {
     })
   }
 
+  function objectEquals (a, b) {
+    return match(a, b) && match(b, a)
+  }
+
   module.exports = {
-    match: match
+    match: match,
+    objectEquals: objectEquals
   }
 })

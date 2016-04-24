@@ -16,17 +16,17 @@ describe('MediaCriteriaModel', function () {
     callback.should.have.been.called
   })
 
-  it('should store media sorting criteria', function () {
+  it('should store media order criteria', function () {
     var model = new MediaCriteriaModel()
-    model.setSorting({ viewers: 'DESC' })
-    model.getSorting().should.deep.equal({ viewers: 'DESC' })
+    model.setOrder({ viewers: 'DESC' })
+    model.getOrder().should.deep.equal({ viewers: 'DESC' })
   })
 
-  it('should publish @sortingChanged event if sorting criteria changes', function () {
+  it('should publish @orderChanged event if order changes', function () {
     var model = new MediaCriteriaModel()
     var callback = sinon.spy()
-    model.sortingChanged.subscribe(callback)
-    model.setSorting({ viewers: 'DESC' })
+    model.orderChanged.subscribe(callback)
+    model.setOrder({ viewers: 'DESC' })
     callback.should.have.been.called
   })
 })

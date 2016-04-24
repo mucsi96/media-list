@@ -13,17 +13,21 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <header>
-      <h1>Media List</h1>
-      <ul id="media-criteria">
-        <li class="contains-popover">
-          <span class="caption">Filter</span>
-          <ul id="media-criteria-filter" class="popover"></ul>
-        </li>
-        <li class="contains-popover">
-          <span class="caption">Sort</span>
-          <ul id="media-criteria-sort" class="popover"></ul>
-        </li>
-      </ul>
+      <div class="header-container">
+        <div class="header-content">
+          <h1>Media List</h1>
+          <ul id="media-criteria">
+            <li class="contains-popover">
+              <span class="caption">Filter</span>
+              <ul id="media-criteria-filter" class="popover"></ul>
+            </li>
+            <li class="contains-popover">
+              <span class="caption">Sort</span>
+              <ul id="media-criteria-sort" class="popover"></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
     <section id="media-list"></section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -50,6 +54,14 @@
 
     <script id="media-criteria-filter-template" type="text/x-custom-template">
       <li class="${class}">${filterName}</li>
+    </script>
+
+    <script id="media-criteria-order-template" type="text/x-custom-template">
+      <li class="${class}">
+        <span class="caption">${orderBy}</span>
+        <span class="tag ${ascClass}">Asc</span>
+        <span class="tag ${descClass}">Desc</span>
+      </li>
     </script>
   </body>
 </html>

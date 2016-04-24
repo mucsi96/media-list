@@ -28,7 +28,6 @@ describe('MediaListModel', function () {
   })
 
   it('should publish @listChanged event if filter changes', function () {
-    var items = [{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo' }]
     var mediaListModel = new MediaListModel()
     var callback = sinon.spy()
     mediaListModel.listChanged.subscribe(callback)

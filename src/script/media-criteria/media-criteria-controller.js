@@ -1,21 +1,18 @@
 $.define('MediaCriteriaController', function (module) {
   'use strict'
 
-  var Event = $.require('Event')
-
   function MediaCriteriaController (model, view) {
     this._model = model
     this._view = view
 
     model.setFilter({})
-    model.setSorting({ id: 'ASC' })
+    model.setOrder({ id: 'ASC' })
 
-    this.criteriaChanged = new Event()
-    model.filterChanged.subscribe(this._publishCriteriaChanged.bind(this))
+    this.filterChanged = model.filterChanged
   }
 
-  MediaCriteriaController.prototype._publishCriteriaChanged = function () {
-    this.criteriaChanged.publish()
+  MediaCriteriaController.prototype.getFilter = function () {
+    return this._model.getFilter()
   }
 
   module.exports = MediaCriteriaController

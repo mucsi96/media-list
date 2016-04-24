@@ -25,11 +25,12 @@
     var mediaCriteriaModel = new MediaCriteriaModel()
     var mediaCriteriaView = new MediaCriteriaView(mediaCriteriaModel, {
       filter: $('#media-criteria-filter'),
-      sort: $('#media-criteria-sort')
+      order: $('#media-criteria-sort')
     })
     var mediaCriteriaController = new MediaCriteriaController(mediaCriteriaModel, mediaCriteriaView)
-    mediaCriteriaController.criteriaChanged.subscribe(function () {
-      mediaListController.setFilter(mediaCriteriaModel.getFilter())
+
+    mediaCriteriaController.filterChanged.subscribe(function () {
+      mediaListController.setFilter(mediaCriteriaController.getFilter())
     })
 
     $.ajax({

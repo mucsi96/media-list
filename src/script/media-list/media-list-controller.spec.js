@@ -20,7 +20,6 @@ describe('MediaListController', function () {
   it('should be capable to filter model items', function () {
     var filter = { id: 1 }
     var listNode = $('<div>')
-    var items = [{ id: 1, title: 'alpha' }, { id: 2, title: 'bravo' }]
     var model = new MediaListModel()
     var view = new MediaListView(model, {
       list: listNode
