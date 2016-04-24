@@ -14,7 +14,16 @@
     <![endif]-->
     <header>
       <h1>Media List</h1>
-      <ul id="media-criteria"></ul>
+      <ul id="media-criteria">
+        <li class="contains-popover">
+          <span class="caption">Filter</span>
+          <ul id="media-criteria-filter" class="popover"></ul>
+        </li>
+        <li class="contains-popover">
+          <span class="caption">Sort</span>
+          <ul id="media-criteria-sort" class="popover"></ul>
+        </li>
+      </ul>
     </header>
     <section id="media-list"></section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -37,19 +46,8 @@
       </div>
     </script>
 
-    <script id="media-criteria-template" type="text/x-custom-template">
-      <li class="contains-popover">
-      <span class="caption">Filter</span>
-        <div class="popover">
-          sdfdsfsdfsd
-        </div>
-      </li>
-      <li class="contains-popover">
-        <span class="caption">Sort</span>
-        <div class="popover">
-          sdfsdfsdfsd
-        </div>
-      </li>
+    <script id="media-criteria-filter-template" type="text/x-custom-template">
+      <li data-filter="${filter}">${filterName}</li>
     </script>
   </body>
 </html>

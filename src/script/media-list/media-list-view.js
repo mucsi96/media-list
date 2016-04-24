@@ -16,8 +16,11 @@ $.define('MediaListView', function (module) {
     var items = this._model.getItems()
     this._elements.list.empty()
     items.forEach(function (item) {
-      self.render('media-list-item', self._elements.list, item)
+      if (item.title) {
+        self.render('media-list-item', self._elements.list, item)
+      }
     })
+    this._elements.list.find('img[src=""]').remove()
   }
 
   module.exports = MediaListView

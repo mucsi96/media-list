@@ -6,15 +6,16 @@ $.define('View', function (module) {
   }
 
   View.prototype.render = function (templateId, element, data) {
-    var html = $('#' + templateId + '-template').html()
+    var template = $('#' + templateId + '-template').html()
+    var html = template
     var regex = /\${(.*?)}/g
-    var match = regex.exec(html)
+    var match = regex.exec(template)
     var value
     while (match) {
       value = data[match[1]]
       value = typeof value !== 'undefined' ? value : ''
       html = html.replace(match[0], value)
-      match = regex.exec(html)
+      match = regex.exec(template)
     }
     element.append(html)
   }

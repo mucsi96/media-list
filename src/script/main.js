@@ -23,7 +23,8 @@
 
     var mediaCriteriaModel = new MediaCriteriaModel()
     var mediaCriteriaView = new MediaCriteriaView(mediaCriteriaModel, {
-      criteria: $('#media-criteria')
+      filter: $('#media-criteria-filter'),
+      sort: $('#media-criteria-sort')
     })
 
     mediaCriteriaModel.setFilter({})

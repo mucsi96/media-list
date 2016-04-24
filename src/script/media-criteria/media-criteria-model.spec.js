@@ -8,10 +8,10 @@ describe('MediaCriteriaModel', function () {
     model.getFilter().should.deep.equal({ type: 'recorded' })
   })
 
-  it('should publish @criteriaChanged event if filter criteria changes', function () {
+  it('should publish @filterChanged event if filter criteria changes', function () {
     var model = new MediaCriteriaModel()
     var callback = sinon.spy()
-    model.criteriaChanged.subscribe(callback)
+    model.filterChanged.subscribe(callback)
     model.setFilter({ type: 'recorded' })
     callback.should.have.been.called
   })
@@ -22,10 +22,10 @@ describe('MediaCriteriaModel', function () {
     model.getSorting().should.deep.equal({ viewers: 'DESC' })
   })
 
-  it('should publish @criteriaChanged event if sorting criteria changes', function () {
+  it('should publish @sortingChanged event if sorting criteria changes', function () {
     var model = new MediaCriteriaModel()
     var callback = sinon.spy()
-    model.criteriaChanged.subscribe(callback)
+    model.sortingChanged.subscribe(callback)
     model.setSorting({ viewers: 'DESC' })
     callback.should.have.been.called
   })
