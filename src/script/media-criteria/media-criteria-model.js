@@ -1,10 +1,10 @@
 $.define('MediaCriteriaModel', function (module) {
   var Event = $.require('Event')
   var filters = [
-    { name: 'All', data: JSON.stringify({}) },
-    { name: 'Live channel only', data: JSON.stringify({ type: 'channel', isLive: true }) },
-    { name: 'Offline channel only', data: JSON.stringify({ type: 'channel', isLive: false }) },
-    { name: 'Video only', data: JSON.stringify({ type: 'recorded' }) }
+    { name: 'All', data: {} },
+    { name: 'Live channel only', data: { type: 'channel', isLive: true } },
+    { name: 'Offline channel only', data: { type: 'channel', isLive: false } },
+    { name: 'Video only', data: { type: 'recorded' } }
   ]
 
   function MediaCriteriaModel () {
