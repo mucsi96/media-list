@@ -14,6 +14,7 @@
 
     var MediaCriteriaModel = $.require('MediaCriteriaModel')
     var MediaCriteriaView = $.require('MediaCriteriaView')
+    var MediaCriteriaController = $.require('MediaCriteriaController')
 
     var mediaListModel = new MediaListModel()
     var mediaListView = new MediaListView(mediaListModel, {
@@ -26,9 +27,10 @@
       filter: $('#media-criteria-filter'),
       sort: $('#media-criteria-sort')
     })
-
-    mediaCriteriaModel.setFilter({})
-    mediaCriteriaModel.setSorting({ id: 'ASC' })
+    var mediaCriteriaController = new MediaCriteriaController(mediaCriteriaModel, mediaCriteriaView)
+    mediaCriteriaController.criteriaChanged.subscribe(function () {
+      mediaListController.setFilter(mediaCriteriaModel.getFilter())
+    })
 
     $.ajax({
       url: 'http://146.185.158.18/fake_api.php',

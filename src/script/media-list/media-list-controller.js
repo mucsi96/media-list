@@ -10,5 +10,9 @@ $.define('MediaListController', function (module) {
     this._model.updateItems(items)
   }
 
+  MediaListController.prototype.setFilter = function (filter) {
+    this._model.setFilter(filter)
+  }
+
   module.exports = MediaListController
 })

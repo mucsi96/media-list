@@ -5,11 +5,11 @@ describe('MediaCriteriaView', function () {
 
   it('should render on media filter criteria change', function () {
     var filterNode = $('<ul>')
-    var orderNode = $('<ul>')
+    var sortNode = $('<ul>')
     var model = new MediaCriteriaModel()
     var view = new MediaCriteriaView(model, {
       filter: filterNode,
-      order: orderNode
+      sort: sortNode
     })
     sinon.stub(view, 'render')
     model.setFilter({ type: 'recorded' })
