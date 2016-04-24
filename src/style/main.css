@@ -147,6 +147,19 @@ header h1 {
 #media-criteria .popover>li {
   padding: 0;
   margin: 0;
+  font-weight: 600;
+  color: #b9c6d0;
+  font-size: .8rem;
+  line-height: 1.6em;
+  cursor: pointer;
+}
+
+#media-criteria .popover>li:hover {
+  color: #38f;
+}
+
+#media-criteria .popover>li.selected {
+  color: #2c3c4c;
 }
 
 #media-list {
