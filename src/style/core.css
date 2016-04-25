@@ -25,6 +25,23 @@
   white-space: nowrap;
 }
 
+@media (max-width: 600px) {
+  .popover {
+    opacity: 1;
+    position: fixed;
+    top: -200px;
+    right: 0;
+    left: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .contains-popover:hover .popover {
+    visibility: visible;
+    top: 0;
+  }
+}
+
 .popover:before {
   content: ' ';
   display: block;

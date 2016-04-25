@@ -32,6 +32,8 @@ header {
 
 @media (max-width: 600px) {
   .header-content {
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 0;
   }
 }
