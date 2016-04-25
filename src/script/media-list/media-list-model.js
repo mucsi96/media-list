@@ -18,11 +18,26 @@ $.define('MediaListModel', function (module) {
     this.listChanged.publish()
   }
 
+  MediaListModel.prototype.setOrder = function (order) {
+    this._order = order
+    this.listChanged.publish()
+  }
+
   MediaListModel.prototype.getItems = function () {
     var self = this
-    return this._items.filter(function (item) {
-      return utils.match(item, self._filter || {})
-    })
+    var items = this._items
+
+    if (this._filter) {
+      items = this._items.filter(function (item) {
+        return utils.match(item, self._filter || {})
+      })
+    }
+
+    if (this._order) {
+      items = items.sort(utils.compareByOrder(this._order))
+    }
+
+    return items
   }
 
   module.exports = MediaListModel

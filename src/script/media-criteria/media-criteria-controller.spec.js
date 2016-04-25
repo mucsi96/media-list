@@ -31,4 +31,32 @@ describe('MediaCriteriaController', function () {
     model.setFilter({ id: 1 })
     controller.getFilter().should.deep.equal({ id: 1 })
   })
+
+  it('should publish @orderChanged if order criteria changes', function () {
+    var filterNode = $('<ul>')
+    var orderNode = $('<ul>')
+    var model = new MediaCriteriaModel()
+    var view = new MediaCriteriaView(model, {
+      filter: filterNode,
+      order: orderNode
+    })
+    var controller = new MediaCriteriaController(model, view)
+    var callback = sinon.spy()
+    controller.orderChanged.subscribe(callback)
+    model.setOrder({ id: 'ASC' })
+    callback.should.have.been.called
+  })
+
+  it('should provide the active order', function () {
+    var filterNode = $('<ul>')
+    var orderNode = $('<ul>')
+    var model = new MediaCriteriaModel()
+    var view = new MediaCriteriaView(model, {
+      filter: filterNode,
+      order: orderNode
+    })
+    var controller = new MediaCriteriaController(model, view)
+    model.setOrder({ id: 'ASC' })
+    controller.getOrder().should.deep.equal({ id: 'ASC' })
+  })
 })

@@ -34,4 +34,20 @@ describe('MediaListModel', function () {
     mediaListModel.setFilter({ id: 2 })
     callback.should.have.been.called
   })
+
+  it('should order media items', function () {
+    var items = [{ id: 2, name: 'bravo' }, { id: 3, name: 'charlie' }, { id: 1, name: 'alpha' }]
+    var mediaListModel = new MediaListModel()
+    mediaListModel.updateItems(items)
+    mediaListModel.setOrder({ id: 'ASC' })
+    mediaListModel.getItems().should.deep.equal([{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo' }, { id: 3, name: 'charlie' }])
+  })
+
+  it('should publish @listChanged event if order changes', function () {
+    var mediaListModel = new MediaListModel()
+    var callback = sinon.spy()
+    mediaListModel.listChanged.subscribe(callback)
+    mediaListModel.setFilter({ id: 2 })
+    callback.should.have.been.called
+  })
 })

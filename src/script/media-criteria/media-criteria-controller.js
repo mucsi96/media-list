@@ -9,10 +9,15 @@ $.define('MediaCriteriaController', function (module) {
     model.setOrder({ id: 'ASC' })
 
     this.filterChanged = model.filterChanged
+    this.orderChanged = model.orderChanged
   }
 
   MediaCriteriaController.prototype.getFilter = function () {
     return this._model.getFilter()
+  }
+
+  MediaCriteriaController.prototype.getOrder = function () {
+    return this._model.getOrder()
   }
 
   module.exports = MediaCriteriaController

@@ -29,4 +29,17 @@ describe('MediaListController', function () {
     controller.setFilter(filter)
     model.setFilter.should.have.been.calledWith(filter)
   })
+
+  it('should be capable to order model items', function () {
+    var order = { id: 'ASC' }
+    var listNode = $('<div>')
+    var model = new MediaListModel()
+    var view = new MediaListView(model, {
+      list: listNode
+    })
+    var controller = new MediaListController(model, view)
+    sinon.stub(model, 'setOrder')
+    controller.setOrder(order)
+    model.setOrder.should.have.been.calledWith(order)
+  })
 })

@@ -14,5 +14,9 @@ $.define('MediaListController', function (module) {
     this._model.setFilter(filter)
   }
 
+  MediaListController.prototype.setOrder = function (order) {
+    this._model.setOrder(order)
+  }
+
   module.exports = MediaListController
 })

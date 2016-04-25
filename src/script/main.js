@@ -33,6 +33,10 @@
       mediaListController.setFilter(mediaCriteriaController.getFilter())
     })
 
+    mediaCriteriaController.orderChanged.subscribe(function () {
+      mediaListController.setOrder(mediaCriteriaController.getOrder())
+    })
+
     $.ajax({
       url: 'http://146.185.158.18/fake_api.php',
       dataType: 'jsonp',
