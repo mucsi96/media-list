@@ -11,19 +11,3 @@ body {
   font-smoothing: antialiased;
   color: #2c3c4c;
 }
-
-#media-list {
-  display: none;
-}
-
-#watch-later {
-  display: none;
-}
-
-#media-list:target {
-  display: flex;
-}
-
-#watch-later:target {
-  display: flex;
-}

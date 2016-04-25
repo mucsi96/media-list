@@ -13,6 +13,7 @@
   var OptionsModel = $.require('OptionsModel')
   var OptionsView = $.require('OptionsView')
   var OptionsController = $.require('OptionsController')
+  var tabs = $.require('tabs')
   var mediaListController
   var watchLaterController
   var pollingInterval
@@ -81,6 +82,8 @@
     optionsController.refreshIntervalChanged.subscribe(function () {
       pollingInterval = optionsController.getRefreshInterval()
     })
+
+    tabs({ tabs: $('.tabs') })
 
     fetch()
     poll()

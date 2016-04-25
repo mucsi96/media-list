@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/core.css">
     <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/tabs.css">
     <link rel="stylesheet" href="style/media-list.css">
     <link rel="stylesheet" href="style/media-criteria.css">
     <link rel="stylesheet" href="style/options.css">
@@ -42,16 +43,19 @@
       </div>
     </header>
     <nav>
-      <a href="#media-list">All items</a>
-      <a href="#watch-later">Watch later items</a>
+      <ul class="tabs">
+        <li class="active" data-toggle="media-list"><a href="#">All items</a></li>
+        <li data-toggle="watch-later"><a href="#">Watch later</a></li>
+      </ul>
     </nav>
-    <section id="media-list" class="media-list"></section>
+    <section id="media-list" class="media-list active"></section>
     <section id="watch-later" class="media-list"></section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="script/core/module.js"></script>
     <script src="script/core/event.js"></script>
     <script src="script/core/view.js"></script>
     <script src="script/core/utils.js"></script>
+    <script src="script/core/tabs.js"></script>
     <script src="script/media-list/media-list-model.js"></script>
     <script src="script/media-list/media-list-view.js"></script>
     <script src="script/media-list/media-list-controller.js"></script>

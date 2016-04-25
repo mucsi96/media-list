@@ -1,9 +1,13 @@
 .media-list {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   padding: 2%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.media-list.active {
+  display: flex;
 }
 
 .media-list-item {

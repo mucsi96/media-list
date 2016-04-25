@@ -24,7 +24,7 @@ $.define('OptionsView', function (module) {
   }
 
   OptionsView.prototype._setRefreshInterval = function (event) {
-    var index = $(event.target).index()
+    var index = $(event.currentTarget).index()
     var intervals = this._model.getRefreshIntervals()
     this._model.setRefreshInterval(intervals[index].interval)
   }

@@ -60,7 +60,7 @@ $.define('MediaListView', function (module) {
 
   MediaListView.prototype._publishWatchLater = function (event) {
     var items = this._model.getItems()
-    var id = $(event.target).data('id')
+    var id = $(event.currentTarget).data('id')
     var selectedItem = items.find(function (item) {
       return id === item.id
     })

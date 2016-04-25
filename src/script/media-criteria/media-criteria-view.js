@@ -15,15 +15,15 @@ $.define('MediaCriteriaView', function (module) {
 
   MediaCriteriaView.prototype._setFilter = function (event) {
     var filters = this._model.getFilters()
-    var index = $(event.target).index()
+    var index = $(event.currentTarget).index()
     this._model.setFilter(filters[index].data)
   }
 
   MediaCriteriaView.prototype._setOrder = function (event) {
     var orders = this._model.getOrders()
-    var index = $(event.target).closest('li').index()
+    var index = $(event.currentTarget).closest('li').index()
     var order = {}
-    order[orders[index].key] = $(event.target).index('.tag') % 2 === 0 ? 'ASC' : 'DESC'
+    order[orders[index].key] = $(event.currentTarget).index('.tag') % 2 === 0 ? 'ASC' : 'DESC'
     this._model.setOrder(order)
   }
 
