@@ -1,0 +1,37 @@
+header {
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+.header-content {
+  height: 4.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2%;
+}
+
+.header-content h1 {
+  margin: 0;
+  color: #38f;
+  text-transform: uppercase;
+  letter-spacing: -.3rem;
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    margin: 0 1%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    margin: 0;
+  }
+}
