@@ -10,13 +10,13 @@ describe('OptionsView', function () {
       refreshInterval: refreshIntervalNode
     })
     sinon.stub(view, 'render')
-    model.setRefreshInterval(2000)
+    model.setRefreshInterval(3000)
     view.render.should.have.been.calledWith('media-refresh-interval', refreshIntervalNode, {
-      title: '2s',
+      title: '3s',
       class: 'active'
     })
     view.render.should.have.been.calledWith('media-refresh-interval', refreshIntervalNode, {
-      title: '1s',
+      title: '10s',
       class: ''
     })
   })

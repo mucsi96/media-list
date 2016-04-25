@@ -5,7 +5,7 @@ $.define('OptionsController', function (module) {
     this._model = model
     this._view = view
     this.refreshIntervalChanged = model.refreshIntervalChanged
-    model.setRefreshInterval(1000)
+    model.setRefreshInterval(10000)
   }
 
   OptionsController.prototype.getRefreshInterval = function () {

@@ -13,25 +13,21 @@
   var mediaListController
   var pollingInterval
 
-  context.updateMediaList = function (data) {
-    mediaListController.updateItems(data)
-  }
-
   function fetch () {
-    console.log('fetch')
     $.ajax({
+      contentType: 'application/json; charset=utf-8',
       url: 'http://146.185.158.18/fake_api.php',
       dataType: 'jsonp',
-      jsonpCallback: 'updateMediaList',
+      success: function (data) {
+        mediaListController.updateItems(data)
+      },
       error: function () {
-        console.error('Cannot connect to server')
+        console.error('Cannot connect to server', arguments)
       }
     })
   }
 
   function poll () {
-    console.log('poll')
-    fetch()
     setTimeout(function () {
       fetch()
       poll()
@@ -71,6 +67,7 @@
       pollingInterval = optionsController.getRefreshInterval()
     })
 
+    fetch()
     poll()
   })
 })(window)
