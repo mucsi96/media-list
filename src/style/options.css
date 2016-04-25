@@ -1,0 +1,18 @@
+#options {
+  font-weight: 600;
+  font-size: .8rem;
+  line-height: 1.6em;
+  display: flex;
+}
+
+#options .caption {
+  margin-right: 20px;
+}
+
+#refresh-interval {
+  color: #b9c6d0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}

@@ -1,5 +1,4 @@
 /* global describe, it, sinon */
-
 describe('MediaListModel', function () {
   var MediaListModel = $.require('MediaListModel')
 

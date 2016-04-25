@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style/header.css">
     <link rel="stylesheet" href="style/media-list.css">
     <link rel="stylesheet" href="style/media-criteria.css">
+    <link rel="stylesheet" href="style/options.css">
     <link rel="stylesheet" href="style/main.css">
   </head>
   <body>
@@ -29,6 +30,13 @@
               <span class="caption">Sort</span>
               <ul id="media-criteria-sort" class="popover"></ul>
             </li>
+            <li class="contains-popover">
+              <span class="caption">Options</span>
+              <div id="options" class="popover">
+                <div class="caption">Refresh interval</div>
+                <ul id="refresh-interval"></ul>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,6 +53,9 @@
     <script src="script/media-criteria/media-criteria-model.js"></script>
     <script src="script/media-criteria/media-criteria-view.js"></script>
     <script src="script/media-criteria/media-criteria-controller.js"></script>
+    <script src="script/options/options-model.js"></script>
+    <script src="script/options/options-view.js"></script>
+    <script src="script/options/options-controller.js"></script>
     <script src="script/main.js"></script>
 
     <script id="media-list-item-template" type="text/x-custom-template">
@@ -67,6 +78,10 @@
         <span class="tag ${ascClass}">Asc</span>
         <span class="tag ${descClass}">Desc</span>
       </li>
+    </script>
+
+    <script id="media-refresh-interval-template" type="text/x-custom-template">
+      <li class="tag ${class}">${title}</li>
     </script>
   </body>
 </html>
