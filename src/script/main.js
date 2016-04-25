@@ -7,10 +7,14 @@
   var MediaCriteriaModel = $.require('MediaCriteriaModel')
   var MediaCriteriaView = $.require('MediaCriteriaView')
   var MediaCriteriaController = $.require('MediaCriteriaController')
+  var WatchLaterModel = $.require('WatchLaterModel')
+  var WatchLaterView = $.require('WatchLaterView')
+  var WatchLaterController = $.require('WatchLaterController')
   var OptionsModel = $.require('OptionsModel')
   var OptionsView = $.require('OptionsView')
   var OptionsController = $.require('OptionsController')
   var mediaListController
+  var watchLaterController
   var pollingInterval
 
   function fetch () {
@@ -18,8 +22,9 @@
       contentType: 'application/json; charset=utf-8',
       url: 'http://146.185.158.18/fake_api.php',
       dataType: 'jsonp',
-      success: function (data) {
-        mediaListController.updateItems(data)
+      success: function (items) {
+        mediaListController.updateItems(items)
+        watchLaterController.updateItems(items)
       },
       error: function () {
         console.error('Cannot connect to server', arguments)
@@ -41,6 +46,12 @@
     })
     mediaListController = new MediaListController(mediaListModel, mediaListView)
 
+    var watchLaterModel = new WatchLaterModel()
+    var watchLaterView = new WatchLaterView(watchLaterModel, {
+      list: $('#watch-later')
+    })
+    watchLaterController = new WatchLaterController(watchLaterModel, watchLaterView)
+
     var mediaCriteriaModel = new MediaCriteriaModel()
     var mediaCriteriaView = new MediaCriteriaView(mediaCriteriaModel, {
       filter: $('#media-criteria-filter'),
@@ -61,6 +72,10 @@
 
     mediaCriteriaController.orderChanged.subscribe(function () {
       mediaListController.setOrder(mediaCriteriaController.getOrder())
+    })
+
+    mediaListController.watchLater.subscribe(function (item) {
+      watchLaterController.addItem(item)
     })
 
     optionsController.refreshIntervalChanged.subscribe(function () {

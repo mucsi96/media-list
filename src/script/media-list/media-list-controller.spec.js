@@ -42,4 +42,17 @@ describe('MediaListController', function () {
     controller.setOrder(order)
     model.setOrder.should.have.been.calledWith(order)
   })
+
+  it('should be capable to add media items to watch later', function () {
+    var listNode = $('<div>')
+    var model = new MediaListModel()
+    var view = new MediaListView(model, {
+      list: listNode
+    })
+    var controller = new MediaListController(model, view)
+    var callback = sinon.spy()
+    controller.watchLater.subscribe(callback)
+    view.watchLater.publish()
+    callback.should.have.been.called
+  })
 })

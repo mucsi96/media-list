@@ -2,11 +2,21 @@ $.define('MediaListView', function (module) {
   'use strict'
 
   var View = $.require('View')
+  var Event = $.require('Event')
 
   function MediaListView (model, elements) {
     this._model = model
     this._elements = elements
-    model.listChanged.subscribe(this._renderList.bind(this))
+
+    this.watchLater = new Event()
+
+    if (model) {
+      model.listChanged.subscribe(this._renderList.bind(this))
+    }
+
+    if (elements) {
+      elements.list.on('click', '.watch-later', this._publishWatchLater.bind(this))
+    }
   }
 
   MediaListView.prototype = new View()
@@ -37,6 +47,7 @@ $.define('MediaListView', function (module) {
       var itemType = self._getItemType(item)
       if (item.title && itemType) {
         self.render('media-list-item', self._elements.list, {
+          id: item.id,
           title: item.title,
           type: itemType,
           picture: item.picture,
@@ -45,6 +56,15 @@ $.define('MediaListView', function (module) {
       }
     })
     this._elements.list.find('img[src=""]').remove()
+  }
+
+  MediaListView.prototype._publishWatchLater = function (event) {
+    var items = this._model.getItems()
+    var id = $(event.target).data('id')
+    var selectedItem = items.find(function (item) {
+      return id === item.id
+    })
+    this.watchLater.publish(selectedItem)
   }
 
   module.exports = MediaListView

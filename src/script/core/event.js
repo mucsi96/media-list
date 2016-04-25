@@ -10,8 +10,9 @@ $.define('Event', function (module) {
   }
 
   Event.prototype.publish = function () {
+    var args = arguments
     this._listeners.forEach(function (listener) {
-      listener()
+      listener.apply(listener, args)
     })
   }
 

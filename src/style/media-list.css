@@ -1,4 +1,4 @@
-#media-list {
+.media-list {
   display: flex;
   flex-wrap: wrap;
   padding: 2%;
@@ -26,12 +26,45 @@
   }
 }
 
+
 .media-list-item .thumbnail {
   margin: 0 0 .6rem;
   width: 100%;
   position: relative;
   padding-bottom: 56.25%;
   background-color: #d0d0d0;
+}
+
+.media-list-item .overlay {
+  visibility: hidden;
+  background-color: #38f;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-list-item:hover .overlay {
+  visibility: visible;
+  opacity: .75;
+}
+
+.overlay button {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: .6rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .media-list-item img {

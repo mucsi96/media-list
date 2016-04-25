@@ -41,7 +41,12 @@
         </div>
       </div>
     </header>
-    <section id="media-list"></section>
+    <nav>
+      <a href="#media-list">All items</a>
+      <a href="#watch-later">Watch later items</a>
+    </nav>
+    <section id="media-list" class="media-list"></section>
+    <section id="watch-later" class="media-list"></section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="script/core/module.js"></script>
     <script src="script/core/event.js"></script>
@@ -50,6 +55,9 @@
     <script src="script/media-list/media-list-model.js"></script>
     <script src="script/media-list/media-list-view.js"></script>
     <script src="script/media-list/media-list-controller.js"></script>
+    <script src="script/watch-later/watch-later-model.js"></script>
+    <script src="script/watch-later/watch-later-view.js"></script>
+    <script src="script/watch-later/watch-later-controller.js"></script>
     <script src="script/media-criteria/media-criteria-model.js"></script>
     <script src="script/media-criteria/media-criteria-view.js"></script>
     <script src="script/media-criteria/media-criteria-controller.js"></script>
@@ -61,6 +69,9 @@
     <script id="media-list-item-template" type="text/x-custom-template">
       <div class="media-list-item">
         <div class="thumbnail">
+          <div class="overlay">
+            <button class="watch-later" data-id="${id}">Watch later</button>
+          </div>
           <img src="${picture}" alt="${title}">
         </div>
         <h3>${title}</h3>

@@ -4,6 +4,7 @@ $.define('MediaListController', function (module) {
   function MediaListController (model, view) {
     this._model = model
     this._view = view
+    this.watchLater = view.watchLater
   }
 
   MediaListController.prototype.updateItems = function (items) {
