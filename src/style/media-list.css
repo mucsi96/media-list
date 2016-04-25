@@ -48,11 +48,18 @@
   padding-bottom: .2rem;
   font-weight: 600;
   margin: 0;
-  height: 2.4rem;
+  max-height: 2.4rem;
   overflow: hidden;
   word-break: normal;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.media-list-item .info {
+  color: #7c8c9c;
+  font-size: .7rem;
+  line-height: 1rem;
+  text-transform: uppercase;
 }

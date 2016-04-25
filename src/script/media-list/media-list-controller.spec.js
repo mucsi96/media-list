@@ -6,7 +6,7 @@ describe('MediaListController', function () {
 
   it('should be capable to update model items', function () {
     var listNode = $('<div>')
-    var items = [{ id: 1, title: 'alpha' }, { id: 2, title: 'bravo' }]
+    var items = [{ id: 1, title: 'alpha', type: 'recorded' }, { id: 2, title: 'bravo', type: 'recorded' }]
     var model = new MediaListModel()
     var view = new MediaListView(model, {
       list: listNode
