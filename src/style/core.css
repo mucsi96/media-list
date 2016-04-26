@@ -22,6 +22,7 @@
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.12);
   padding: 10px;
   white-space: nowrap;
+  transition: all .5s;
 }
 
 @media (max-width: 600px) {
@@ -30,7 +31,6 @@
     position: fixed;
     top: 0;
     transform: translate(0, -200px);
-    transition: all .5s;
     right: 0;
     left: 0;
     border: none;
