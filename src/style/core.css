@@ -12,7 +12,6 @@
   cursor: default;
   visibility: hidden;
   opacity: 0;
-  transition: all .5s;
   z-index: 1;
   position: absolute;
   top: 2.2rem;
@@ -29,7 +28,9 @@
   .popover {
     opacity: 1;
     position: fixed;
-    top: -200px;
+    top: 0;
+    transform: translate(0, -200px);
+    transition: all .5s;
     right: 0;
     left: 0;
     border: none;
@@ -38,7 +39,7 @@
 
   .contains-popover:hover .popover {
     visibility: visible;
-    top: 0;
+    transform: translate(0, 0);
   }
 }
 

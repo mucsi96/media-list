@@ -1,0 +1,31 @@
+#notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -200px);
+  transition: all .5s;
+  background-color: #de4343;
+  color: #fff;
+  z-index: 2;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.12);
+  padding: 15px;
+  font-size: .8rem;
+  line-height: 1.2rem;
+  font-weight: 600;
+  visibility: hidden;
+}
+
+#notification.active {
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 600px) {
+  #notification {
+    top: 0px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+

@@ -13,10 +13,12 @@
   var OptionsModel = $.require('OptionsModel')
   var OptionsView = $.require('OptionsView')
   var OptionsController = $.require('OptionsController')
+  var Notification = $.require('Notification')
   var tabs = $.require('tabs')
   var mediaListController
   var watchLaterController
   var pollingInterval
+  var notification
 
   function fetch () {
     $.ajax({
@@ -28,7 +30,7 @@
         watchLaterController.updateItems(items)
       },
       error: function () {
-        console.error('Cannot connect to server', arguments)
+        notification.notify('Cannot connect to server')
       }
     })
   }
@@ -89,6 +91,7 @@
     })
 
     tabs({ tabs: $('.tabs') })
+    notification = new Notification({ notification: $('#notification') }, 3000)
 
     fetch()
     poll()
