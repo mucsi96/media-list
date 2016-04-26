@@ -18,6 +18,21 @@ describe('MediaListModel', function () {
     mediaListModel.getItems().should.deep.equal(items)
   })
 
+  it('should handle media items flagged as watch later when updating items', function () {
+    var items = [{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo' }]
+    var mediaListModel = new MediaListModel()
+    mediaListModel.updateItems(items, [{ id: 2, name: 'bravo' }])
+    mediaListModel.getItems().should.deep.equal([{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo', watchLater: true }])
+  })
+
+  it('should handle media items flagged as watch later in a separate call', function () {
+    var items = [{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo' }]
+    var mediaListModel = new MediaListModel()
+    mediaListModel.updateItems(items)
+    mediaListModel.updateWatchLater([{ id: 2, name: 'bravo' }])
+    mediaListModel.getItems().should.deep.equal([{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo', watchLater: true }])
+  })
+
   it('should filter media items', function () {
     var items = [{ id: 1, name: 'alpha' }, { id: 2, name: 'bravo' }]
     var mediaListModel = new MediaListModel()

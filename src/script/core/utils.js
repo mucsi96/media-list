@@ -23,9 +23,20 @@ $.define('utils', function (module) {
     }
   }
 
+  function findById (array, id) {
+    return array.find(byId(id))
+  }
+
+  function byId (id) {
+    return function (item) {
+      return item.id === id
+    }
+  }
+
   module.exports = {
     match: match,
     objectEquals: objectEquals,
-    compareByOrder: compareByOrder
+    compareByOrder: compareByOrder,
+    findById: findById
   }
 })

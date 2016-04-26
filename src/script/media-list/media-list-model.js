@@ -8,9 +8,27 @@ $.define('MediaListModel', function (module) {
     this.listChanged = new Event()
   }
 
-  MediaListModel.prototype.updateItems = function (items) {
+  MediaListModel.prototype.updateItems = function (items, watchLater) {
     this._items = [].concat(items)
+    if (watchLater) {
+      this._updateWatchLaterItems(watchLater)
+    }
     this.listChanged.publish()
+  }
+
+  MediaListModel.prototype.updateWatchLater = function (watchLater) {
+    this._updateWatchLaterItems(watchLater)
+    this.listChanged.publish()
+  }
+
+  MediaListModel.prototype._updateWatchLaterItems = function (watchLater) {
+    this._items.forEach(function (item) {
+      if (utils.findById(watchLater, item.id)) {
+        item.watchLater = true
+      } else {
+        delete item.watchLater
+      }
+    })
   }
 
   MediaListModel.prototype.setFilter = function (filter) {

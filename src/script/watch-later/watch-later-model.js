@@ -10,7 +10,23 @@ $.define('WatchLaterModel', function (module) {
 
   WatchLaterModel.prototype.addItem = function (item) {
     var items = this.getItems()
+    item.watchLater = true
     items.push(item)
+    localStorage.setItem('watchLater', JSON.stringify(items))
+    this.listChanged.publish()
+  }
+
+  WatchLaterModel.prototype.removeItem = function (itemToRemove) {
+    var items = this.getItems()
+    var index
+    items.every(function (item, idx) {
+      if (itemToRemove.id === item.id) {
+        index = idx
+        return false
+      }
+      return true
+    })
+    items.splice(index, 1)
     localStorage.setItem('watchLater', JSON.stringify(items))
     this.listChanged.publish()
   }

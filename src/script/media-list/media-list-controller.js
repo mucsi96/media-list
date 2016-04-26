@@ -7,8 +7,12 @@ $.define('MediaListController', function (module) {
     this.watchLater = view.watchLater
   }
 
-  MediaListController.prototype.updateItems = function (items) {
-    this._model.updateItems(items)
+  MediaListController.prototype.updateItems = function (items, watchLater) {
+    this._model.updateItems(items, watchLater)
+  }
+
+  MediaListController.prototype.updateWatchLater = function (watchLater) {
+    this._model.updateWatchLater(watchLater)
   }
 
   MediaListController.prototype.setFilter = function (filter) {

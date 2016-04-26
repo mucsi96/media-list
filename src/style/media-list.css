@@ -71,6 +71,18 @@
   cursor: pointer;
 }
 
+.overlay.can-add-to-watch-later button.remove {
+  display: none;
+}
+
+.overlay.can-remove-from-watch-later button.watch-later {
+  display: none;
+}
+
+#media-list .overlay.can-remove-from-watch-later {
+  display: none;
+}
+
 .media-list-item img {
   position: absolute;
   top: 0;

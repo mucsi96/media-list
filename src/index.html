@@ -73,8 +73,9 @@
     <script id="media-list-item-template" type="text/x-custom-template">
       <div class="media-list-item">
         <div class="thumbnail">
-          <div class="overlay">
+          <div class="overlay ${overlayClass}">
             <button class="watch-later" data-id="${id}">Watch later</button>
+            <button class="remove" data-id="${id}">Remove</button>
           </div>
           <img src="${picture}" alt="${title}">
         </div>

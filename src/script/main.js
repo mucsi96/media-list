@@ -24,7 +24,7 @@
       url: 'http://146.185.158.18/fake_api.php',
       dataType: 'jsonp',
       success: function (items) {
-        mediaListController.updateItems(items)
+        mediaListController.updateItems(items, watchLaterController.getItems())
         watchLaterController.updateItems(items)
       },
       error: function () {
@@ -77,6 +77,11 @@
 
     mediaListController.watchLater.subscribe(function (item) {
       watchLaterController.addItem(item)
+      mediaListController.updateWatchLater(watchLaterController.getItems())
+    })
+
+    watchLaterController.removeFromWatchLater.subscribe(function (item) {
+      mediaListController.updateWatchLater(watchLaterController.getItems())
     })
 
     optionsController.refreshIntervalChanged.subscribe(function () {

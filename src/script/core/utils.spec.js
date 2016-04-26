@@ -53,4 +53,10 @@ describe('utils', function () {
       compare({ a: 2 }, { a: 2 }).should.equal(0)
     })
   })
+
+  describe('findById', function () {
+    it('should search for item by id', function () {
+      utils.findById([{ id: 1 }, { id: 2 }], 2).should.deep.equal({ id: 2 })
+    })
+  })
 })

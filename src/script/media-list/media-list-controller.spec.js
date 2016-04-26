@@ -17,6 +17,19 @@ describe('MediaListController', function () {
     view.render.should.have.been.called
   })
 
+  it('should be capable to update model items added to watch later', function () {
+    var listNode = $('<div>')
+    var items = [{ id: 1, title: 'alpha', type: 'recorded' }, { id: 2, title: 'bravo', type: 'recorded' }]
+    var model = new MediaListModel()
+    var view = new MediaListView(model, {
+      list: listNode
+    })
+    var controller = new MediaListController(model, view)
+    sinon.stub(model, 'updateWatchLater')
+    controller.updateWatchLater(items)
+    model.updateWatchLater.should.have.been.called
+  })
+
   it('should be capable to filter model items', function () {
     var filter = { id: 1 }
     var listNode = $('<div>')
